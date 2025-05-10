@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # JobApplication
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
@@ -51,3 +52,6 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 - [Advanced Configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
 - [Deployment](https://facebook.github.io/create-react-app/docs/deployment)
 - [Troubleshooting `npm run build`](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+=======
+# JobApplicationT
+>>>>>>> f11b509f7a2636f95164fbbdbe7f3f19a642b861
