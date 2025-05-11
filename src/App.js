@@ -25,6 +25,8 @@ import StudentNavBar from './components/StudentNavBar'
 import EditProfile from './components/EditProfile';
 import ChangePassword from './components/ChangePassword';
 import MyApplications from './components/MyApplications';
+import Resume from './components/Resume';
+
 
 export default function App() {
     const [isAdminLoggedIn, setIsAdminLoggedIn] = useState(false);
@@ -66,6 +68,8 @@ export default function App() {
                 <Route path="/scholarships/:id" element={<ScholarshipDetail />} />
                 
                 {/* Scholarship List Route */}
+                  <Route path="/upload-resume" element={<Resume />} />
+
                 <Route path="/scholarships" element={<ScholarshipList />} />
                 <Route path="/aboutus" element={<AboutUs />} />
                 <Route path="/contactus" element={<ContactUs />} />

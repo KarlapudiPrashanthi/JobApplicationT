@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom'; // Link for navigation to edit pages
+//import { Link } from 'react-router-dom'; // Link for navigation to edit pages
 import './viewscholarships.css'; // Create your custom CSS for styling
 import axios from 'axios';
 

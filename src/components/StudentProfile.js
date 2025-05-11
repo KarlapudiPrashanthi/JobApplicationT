@@ -5,7 +5,9 @@ import { useNavigate } from 'react-router-dom';
 
 function Profile() {
     const [profileData, setProfileData] = useState({});
+    const [resumeFile, setResumeFile] = useState(null);
     const [error, setError] = useState('');
+    const [uploadSuccess, setUploadSuccess] = useState('');
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -34,6 +36,33 @@ function Profile() {
         navigate('/changepassword');
     };
 
+    const handleResumeChange = (e) => {
+        setResumeFile(e.target.files[0]);
+    };
+
+    const handleResumeUpload = async () => {
+        if (!resumeFile) {
+            alert('Please choose a .docx file');
+            return;
+        }
+
+        const formData = new FormData();
+        formData.append('resume', resumeFile);
+        formData.append('userId', localStorage.getItem('userId'));
+
+        try {
+            await axios.post('http://localhost:8080/api/users/upload-resume', formData, {
+                headers: {
+                    'Content-Type': 'multipart/form-data'
+                }
+            });
+            setUploadSuccess('Resume uploaded successfully!');
+        } catch (error) {
+            console.error('Error uploading resume:', error);
+            setUploadSuccess('Failed to upload resume.');
+        }
+    };
+
     return (
         <div className='studentprofile'>
             <div className="profile-container">
@@ -53,6 +82,15 @@ function Profile() {
                         <p><strong>College:</strong> {profileData.college}</p>
                         <p><strong>CGPA:</strong> {profileData.cgpa}</p>
                         <p><strong>User Type:</strong> {profileData.userType}</p>
+
+                        <hr />
+
+                        <label><strong>Edit/Upload Resume:</strong></label><br />
+                        <input type="file" accept=".docx" onChange={handleResumeChange} /><br /><br />
+                        <button onClick={handleResumeUpload}>Save Resume</button>
+                        {uploadSuccess && <p>{uploadSuccess}</p>}
+
+                        <br /><br />
                         <button onClick={handleEditClick} className="edit-button">Edit Profile</button>
                         <button onClick={handleChangePasswordClick} className="change-password-button">Change Password</button>
                     </div>

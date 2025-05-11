@@ -62,6 +62,7 @@ function ViewStudentsTable() {
                             <th>College</th>
                             <th>CGPA</th>
                             <th>User Type</th>
+                            <th>Resume</th>
                             <th>Actions</th>
                         </tr>
                     </thead>
@@ -85,6 +86,7 @@ function ViewStudentsTable() {
                                     <td>{student.college}</td>
                                     <td>{student.cgpa}</td>
                                     <td>{student.userType}</td>
+                                    <td>{student.resume}</td>
                                     <td>
                                         <button
                                             className="button delete-btn"

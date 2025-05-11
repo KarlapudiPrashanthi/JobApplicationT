@@ -6,9 +6,7 @@ function Navbar() {
     const navigate = useNavigate();
 
     // Function to handle About Us click and navigate to the section
-    const handlelogo = () =>{
-        navigate("/")
-    }
+   
     const handleAboutUsClick = () => {
         navigate('/#aboutus');
         window.location.reload(); // Navigate to Home and scroll to #aboutus section
